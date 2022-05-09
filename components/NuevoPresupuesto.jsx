@@ -16,8 +16,8 @@ const NuevoPresupuesto = ({
       setMensaje('No es un presupuesto válido')
       return
     }
-  setMensaje('')
-  setIsValidPresupuesto(true)
+    setMensaje('')
+    setIsValidPresupuesto(true)
   }
  
   return (
@@ -26,6 +26,7 @@ const NuevoPresupuesto = ({
         <form onSubmit={handlePresupuesto} className='formulario'>
             <div className="campo">
                 <label>Definir Presupuesto</label>
+                
                 <input 
                 className='nuevo-presupuesto' 
                 type="number" 
