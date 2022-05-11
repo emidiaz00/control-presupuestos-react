@@ -1,12 +1,20 @@
 import CerrarBtn from '../img/cerrar.svg'
 
-const Modal = () => {
+
+
+const Modal = ({setModal}) => {
+
+ const OcultarModal = () => {
+   setModal(false)
+ }
+
   return (
     <div className="modal">
         <div className="cerrar-modal">
           <img 
           src={CerrarBtn} 
-          alt="Cerrar Modal" />
+          alt="Cerrar Modal"
+          onClick={OcultarModal} />
         </div>
     </div>
   )
