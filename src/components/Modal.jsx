@@ -1,8 +1,13 @@
 import CerrarBtn from '../img/cerrar.svg'
+import { useState } from 'react';
 
 
 
-const Modal = ({setModal, animarModal}) => {
+const Modal = ({setModal, animarModal, setAnimarModal}) => {
+
+  const [nombre, setNombre] = useState('')
+  const [cantidad, setCantidad] = useState('')
+  const [categoria, setCategoria] = useState('')
   
   const OcultarModal = () => {
     setModal(false)
@@ -30,7 +35,8 @@ const Modal = ({setModal, animarModal}) => {
     id="nombre"
     type="text" 
     placeholder="Añade el nombre del Gasto"
-    name="" 
+    value={nombre}
+    onChange={ e => setNombre(e.target.value)}
     />
     
     <div className="campo">
@@ -41,7 +47,8 @@ const Modal = ({setModal, animarModal}) => {
     id="cantidad" 
     type="number" 
     placeholder="Añade la cantidad del gasto por ej:"
-    name="" 
+    value={cantidad}
+    onChange={ e => setCantidad(Number(e.target.value))}
     />
     
     <div className="campo">
@@ -50,7 +57,10 @@ const Modal = ({setModal, animarModal}) => {
     
     <select 
     name="" 
-    id="categoria">
+    id="categoria"
+    value={categoria}
+    onChange={ e => setCategoria(e.target.value)}
+    >
     <option value="">-- Seleccione --</option>
     <option value="">Ahorro</option>
     <option value="">Comida</option>
@@ -60,8 +70,6 @@ const Modal = ({setModal, animarModal}) => {
     <option value="">Cuentas</option>
     <option value="">Ocio</option>
     <option value="">Otros</option>
-    
-    
     </select>
 
     <input type="submit" value="Añadir Gasto" />
