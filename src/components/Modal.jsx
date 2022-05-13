@@ -16,6 +16,12 @@ const Modal = ({setModal}) => {
           alt="Cerrar Modal"
           onClick={OcultarModal} />
         </div>
+
+        <form className="formulario" action="">
+          <legend>Nuevo Gasto</legend>
+
+        </form>
+
     </div>
   )
 }
