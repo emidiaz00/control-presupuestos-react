@@ -10,8 +10,24 @@ const Modal = ({setModal, animarModal, setAnimarModal}) => {
   const [categoria, setCategoria] = useState('')
   
   const OcultarModal = () => {
-    setModal(false)
+    setAnimarModal(false)
+    
+
+    setTimeout(() => {
+      setModal(false)
+    }, 500);
   }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    if ([nombre, cantidad, categoria].includes('')) {
+      console.log("Falló la validación")
+      return;
+    }
+  }
+
+
   
   return (
     <div className="modal">
@@ -24,6 +40,7 @@ const Modal = ({setModal, animarModal, setAnimarModal}) => {
     
     
     <form 
+    onSubmit={handleSubmit}
     className={`formulario ${animarModal ? "animar" : 'cerrar'}`}>
     <legend>Nuevo Gasto</legend>
     
