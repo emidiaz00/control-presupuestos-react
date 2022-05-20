@@ -9,21 +9,40 @@ const Modal = ({setModal, animarModal, setAnimarModal}) => {
   const [cantidad, setCantidad] = useState('')
   const [categoria, setCategoria] = useState('')
   
-  const OcultarModal = () => {
-    setModal(false)
+  const ocultarModal = () => {
+
+    setAnimarModal(false)
+    
+    setTimeout(() => {
+      setModal(false)
+    }, 500);
+  
   }
+  
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    if ([nombre, cantidad, categoria].includes('')) {
+      console.log("Falló la validación")
+      return;
+    }
+  }
+
+
   
   return (
     <div className="modal">
     <div className="cerrar-modal">
     <img 
     src={CerrarBtn} 
-    alt="Cerrar Modal"
-    onClick={OcultarModal} />
+    alt="cerrar modal"
+    onClick={ocultarModal} />
     </div>
     
     
     <form 
+    onSubmit={handleSubmit}
     className={`formulario ${animarModal ? "animar" : 'cerrar'}`}>
     <legend>Nuevo Gasto</legend>
     
@@ -56,20 +75,19 @@ const Modal = ({setModal, animarModal, setAnimarModal}) => {
     </div>
     
     <select 
-    name="" 
     id="categoria"
     value={categoria}
     onChange={ e => setCategoria(e.target.value)}
     >
     <option value="">-- Seleccione --</option>
-    <option value="">Ahorro</option>
-    <option value="">Comida</option>
-    <option value="">Casa</option>
-    <option value="">Salud</option>
-    <option value="">Suscripciones</option>
-    <option value="">Cuentas</option>
-    <option value="">Ocio</option>
-    <option value="">Otros</option>
+    <option value="ahorro">Ahorro</option>
+    <option value="comida">Comida</option>
+    <option value="casa">Casa</option>
+    <option value="salud">Salud</option>
+    <option value="suscripciones">Suscripciones</option>
+    <option value="cuentas">Cuentas</option>
+    <option value="ocio">Ocio</option>
+    <option value="otros">Otros</option>
     </select>
 
     <input type="submit" value="Añadir Gasto" />
