@@ -53,7 +53,6 @@ function App() {
       setModal={setModal}
       animarModal={animarModal}
       setAnimarModal={setAnimarModal}
-      
       />}
 
      
